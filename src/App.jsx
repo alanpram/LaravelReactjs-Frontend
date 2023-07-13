@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Navbar from './component/home/NavbarComponent';
 import Banner from './component/home/BannerComponent';
+import ContentPromo from './component/home/ContentPromoComponent';
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
       <div className="swiper-banner">
         <Banner banners={banners} />
       </div>
+      
+      <ContentPromo/>
 
     </div>
   );

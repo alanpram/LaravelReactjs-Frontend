@@ -11,7 +11,7 @@ const NavbarComponent = () => {
 
     return (
         <div>
-            <Navbar bg="dark" variant="dark" expand="lg">
+            <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
                 <Container fluid>
                 <Navbar.Brand href="#">
                     <img src={Logo} alt="Logo"/>

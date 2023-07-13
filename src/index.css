@@ -8,3 +8,23 @@
   color: white !important;
   font-size: 14px !important;
 }
+
+.swiper-image{
+  margin-top: 50px;
+  width: 100%;
+}
+
+.content-promo-img{
+  width: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+  .swiper-image{
+      height: 700px;
+      object-fit: cover;
+  }
+
+  .content-promo-img{
+    object-fit: cover;
+  }
+}
