@@ -5,6 +5,7 @@ import axios from 'axios';
 import Navbar from './component/home/NavbarComponent';
 import Banner from './component/home/BannerComponent';
 import ContentPromo from './component/home/ContentPromoComponent';
+import ProductComponent from './component/home/ProductComponent';
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
       </div>
       
       <ContentPromo/>
+
+      <ProductComponent/>
+      <p className='text-danger'>dsfsdfsdfdsfs</p>
 
     </div>
   );
