@@ -9,6 +9,7 @@ import img6 from '../../assets/img/layout/img6.jpg';
 import img7 from '../../assets/img/layout/img7.jpg';
 import img8 from '../../assets/img/layout/img8.jpg';
 import CardHeader from "react-bootstrap/esm/CardHeader";
+import { BsFillStarFill } from "react-icons/bs";
 
 const ProductComponent = () => {
     return(
@@ -19,13 +20,13 @@ const ProductComponent = () => {
                     {Array.from({ length: 8 }).map((_, index) => (
                     <Col xs={6} md={3} className='product mb-3'>
                         <Card>
-                            <Card.Img variant="top" src={img1} />
+                            <Card.Img variant="top" src={img3} />
                             <Card.Body>
                                 <Card.Title>Armchair Alghero</Card.Title>
                                 <Card.Text>
-                                    <div className="d-flex justify-content-between">
+                                    <div className=" justify-content-between">
                                         <p>From <span className="text-success">Rp.1.200.000</span></p>
-                                        <p className="">/\/\/\</p>
+                                        <p className=""><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/></p>
                                     </div>
 
                                 </Card.Text>

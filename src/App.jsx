@@ -7,6 +7,10 @@ import Banner from './component/home/BannerComponent';
 import ContentPromo from './component/home/ContentPromoComponent';
 import ProductComponent from './component/home/ProductComponent';
 
+import BlogComponent from './component/home/BlogComponent';
+import BannerPromoComponent from './component/home/BannerPromoComponent';
+import FooterComp from './component/home/FooterComp';
+
 function App() {
 
   const [banners, setBanners] = useState([]);
@@ -36,8 +40,12 @@ function App() {
       <ContentPromo/>
 
       <ProductComponent/>
-      <p className='text-danger'>dsfsdfsdfdsfs</p>
 
+      <BannerPromoComponent/>
+
+      <BlogComponent/>
+
+      <FooterComp/>
     </div>
   );
 }
