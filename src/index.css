@@ -9,6 +9,17 @@
   font-size: 14px !important;
 }
 
+.banner{
+  height: 700px;
+  background-color: #ebebeb;
+}
+
+.banner-icon{
+  font-size: 100px;
+  filter: grayscale(100%);
+  opacity: 0.1;
+}
+
 .swiper-image{
   margin-top: 50px;
   width: 100%;
@@ -34,6 +45,28 @@
   margin-top: 20px;
 }
 
+.card{
+  height: 400px !important;
+  background-color: #e4e4e4 !important;
+  border: none !important;
+}
+
+.skeleton-content-promo{
+  height: 250px;
+  background-color: #eeeeee !important;
+}
+
+
+.skeleton-card-title{
+  height: 50px;
+  background-color: #ffffff;
+}
+
+.skeleton-card-body{
+  height: 300px;
+  background-color: #ffffff;
+}
+
 
 @media only screen and (min-width: 992px) {
   .swiper-image{
@@ -44,4 +77,21 @@
   .content-promo-img{
     object-fit: cover;
   }
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+
 }

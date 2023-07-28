@@ -17,23 +17,18 @@ const ProductComponent = () => {
             <Container>
                 <h5 className="text-light mb-4">Top Product</h5>
                 <Row>
-                    {Array.from({ length: 8 }).map((_, index) => (
-                    <Col xs={6} md={3} className='product mb-3'>
-                        <Card>
-                            <Card.Img variant="top" src={img3} />
-                            <Card.Body>
-                                <Card.Title>Armchair Alghero</Card.Title>
-                                <Card.Text>
-                                    <div className=" justify-content-between">
-                                        <p>From <span className="text-success">Rp.1.200.000</span></p>
-                                        <p className=""><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/></p>
-                                    </div>
-
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    ))}
+                <Col xs={6} md={3} className='product mb-3'>
+                    <Card>
+                    <Card.Img variant="top" src={img3} />
+                    <Card.Body>
+                        <Card.Title>Armchair Alghero</Card.Title>
+                        <div className="card-text"> {/* Memindahkan <div> di luar dari <p> */}
+                        <p>From <span className="text-success">Rp.1.200.000</span></p>
+                        <p className=""><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/></p>
+                        </div>
+                    </Card.Body>
+                    </Card>
+                </Col>
                 </Row>
             </Container>
         </div>

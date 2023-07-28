@@ -25,7 +25,7 @@ function SwiperComponent({ banners }) {
         <SwiperSlide key={banner.banner_uuid}>
           <img
             className="swiper-image"
-            src={banner.link_image.media_path + banner.link_image.media_file}
+            src={'http://localhost:1234' +banner.link_image.media_path + banner.link_image.media_file}
             alt={banner.link_image.media_alt}
           />
         </SwiperSlide>
