@@ -15,19 +15,14 @@ const BannerPromoComponent = () => {
                     <img className='w-100 mg-mt-5' src={BannerPromo}/>
                 </div>
                 <Row>
-                    <Col md={4} className='mb-3'>
+                    <Col className='mb-3'>
                         <div className='content-promo'>
                             <img className='content-promo-img' src={Contenta} alt="content"/>
                         </div>
                     </Col>
-                    <Col md={4} className='mb-3'>
+                    <Col className='mb-3'>
                         <div className='content-promo'>
                             <img className='content-promo-img' src={Contentb} alt="content"/>
-                        </div>
-                    </Col>
-                    <Col md={4} className='mb-3'>
-                        <div className='content-promo'>
-                            <img className='content-promo-img' src={Contentc} alt="content"/>
                         </div>
                     </Col>
                 </Row>

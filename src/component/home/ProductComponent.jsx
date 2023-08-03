@@ -11,24 +11,26 @@ import img8 from '../../assets/img/layout/img8.jpg';
 import CardHeader from "react-bootstrap/esm/CardHeader";
 import { BsFillStarFill } from "react-icons/bs";
 
-const ProductComponent = () => {
+const ProductComponent = ({data}) => {
     return(
         <div>
             <Container>
                 <h5 className="text-light mb-4">Top Product</h5>
                 <Row>
-                <Col xs={6} md={3} className='product mb-3'>
-                    <Card>
-                    <Card.Img variant="top" src={img3} />
-                    <Card.Body>
-                        <Card.Title>Armchair Alghero</Card.Title>
-                        <div className="card-text"> {/* Memindahkan <div> di luar dari <p> */}
-                        <p>From <span className="text-success">Rp.1.200.000</span></p>
-                        <p className=""><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/></p>
-                        </div>
-                    </Card.Body>
-                    </Card>
-                </Col>
+                {data.map((product) => (
+                    <Col key={product.product_uuid} xs={6} md={3} className='product mb-3'>
+                        <Card>
+                        <Card.Img variant="top" src={img3} />
+                        <Card.Body>
+                            <Card.Title>Armchair Alghero</Card.Title>
+                                <div className="card-text">
+                                    <p>From <span className="text-success">Rp.1.200.000</span></p>
+                                    <p className=""><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/></p>
+                                </div>
+                        </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
                 </Row>
             </Container>
         </div>

@@ -14,6 +14,7 @@ import FooterComp from './component/home/FooterComp';
 import { BsFillImageFill } from "react-icons/bs";
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
+import SkeletonCard from './component/plugin/SkeletonCardComponent';
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
 
   const [contentPromo, setContentPromo] = useState([]);
   const [loadContentPromo, setLoadContentPromo] = useState(true);
+
+  const [topProduct,setTopProduct] = useState([]);
+  const [loadTopProduct, setLoadTopProduct] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,24 +42,38 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const fetchContenPromo = async () => {
+    const fetchData = async () => {
       try{
         const response = await axios.get('http://127.0.0.1:1234/api/banner/content-promo');
         setContentPromo(response.data.data);
-        console.log(response);
         setLoadContentPromo(false);
       }catch(error){
         console.log(error);
       }
     };
 
-    fetchContenPromo();
+    fetchData();
   },[]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const response = await axios.get('http://127.0.0.1:1234/api/product/top');
+        setTopProduct(response.data.data);
+        setLoadTopProduct(false);
+      }catch(error){
+        console.log("error");
+      }
+    };
+
+    fetchData();
+  },[])
+
 
   return (
     <div>
-
       <Navbar/>
+
       {loadBanners ? (
         <div className='banner d-flex justify-content-center align-items-center'>
           <BsFillImageFill className='banner-icon pulse' />  
@@ -69,28 +87,34 @@ function App() {
       {loadContentPromo ? (
         <Container fluid className='mt-md-5 p-5'>
           <Row>
-              <Col md={4} className='mb-3'>
-                  <div className='content-promo'>
-                      <Skeleton className='skeleton-content-promo'/>
-                  </div>
-              </Col>
-              <Col md={4} className='mb-3'>
-                  <div className='content-promo'>
-                      <Skeleton className='skeleton-content-promo'/>
-                  </div>
-              </Col>
-              <Col md={4} className='mb-3'>
-                  <div className='content-promo'>
-                      <Skeleton className='skeleton-content-promo'/>
-                  </div>
-              </Col>
+            {[...Array(3)].map((_,index) => (
+              <Col key={index} className='mb-3'>
+                    <div className='skeleton-card'>
+                        <Skeleton className='skeleton-content'/>
+                    </div>
+                </Col>
+            ))}
           </Row>
       </Container>
       ) : (
         <ContentPromo contentPromo={contentPromo}/>
       )}
 
-      <ProductComponent/>
+      {loadTopProduct ? (
+        <Container>
+          <h5 className="text-light mb-4">Top Product</h5>
+          <Row>
+            {[...Array(8)].map((_, index) => (
+              <Col key={index} md={3} className='mb-3'>
+                <SkeletonCard />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      ):(
+        <ProductComponent data={topProduct}/>
+      )}
+      
 
       <BannerPromoComponent/>
 

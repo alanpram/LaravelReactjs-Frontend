@@ -28,7 +28,7 @@ const BlogComponent = () => {
                                             <p>From <span className="text-success">Rp.1.200.000</span></p>
                                             <p className=""></p>
                                         </div>
-
+ 
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
