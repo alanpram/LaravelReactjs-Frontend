@@ -6,7 +6,8 @@ import { BsInstagram,BsYoutube } from "react-icons/bs";
 
 const FooterComp = () => {
     return(
-        <Container className="mt-5">
+       <div className="bg-dark p-5">
+         <Container className="mt-5">
             <Row>
                 <Col md={6}>
                     <img src={Logo} alt="Logo"/>
@@ -47,6 +48,7 @@ const FooterComp = () => {
                 @Grandome2023
             </div>
         </Container>
+       </div>
     );
 }
 

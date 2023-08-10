@@ -7,12 +7,12 @@ import Contenta from '../../assets/img/layout/contenta.jpg';
 import Contentb from '../../assets/img/layout/contentb.jpg';
 import Contentc from '../../assets/img/layout/contentc.jpg';
 
-const BannerPromoComponent = () => {
+const BannerPromoComponent = ({data}) => {
     return(
         <div className="mb-5">
             <Container className=''>
                 <div className='banner-promo mt-5'>
-                    <img className='w-100 mg-mt-5' src={BannerPromo}/>
+                    <img className='w-100 mg-mt-5' src={'http://localhost:1234' +data.link_image.media_path + data.link_image.media_file} alt={data.link_image.media_alt}/>
                 </div>
                 <Row>
                     <Col className='mb-3'>
