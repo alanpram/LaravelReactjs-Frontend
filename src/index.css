@@ -1,6 +1,6 @@
 .navbar-brand img{
   width: 200px;
-  padding: 5px;
+  padding: 1px;
   margin-right: 100px;
 }
 
@@ -8,6 +8,73 @@
   color: white !important;
   font-size: 14px !important;
 }
+
+.nav-link:hover{
+  color: #c5a335 !important;
+}
+
+.dropdown {
+  position: static !important;
+}
+
+.dropdown-menu.show {
+  border-top: 10px solid #212529;
+  border-bottom: 5px solid #c5a335;
+  margin-top: -15px !important;
+  padding: 30px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  border-top: 10px solid #212529;
+  border-bottom: 5px solid #c5a335;
+  margin-top: -15px;
+  padding: 30px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.dropdown-toggle::after{
+    display: none !important;
+}
+
+.menu{
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .submenu-border{
+        border-right: 1px solid rgba(128, 128, 128, 0.342);
+    }
+
+    .submenu{
+        margin-top: -10px;
+        font-size: 12px;
+    }
+
+    .submenu li{
+        margin-left: -32px;
+        margin-top: 5px;
+        list-style: none;
+    }
+
+    .submenu li a{
+        text-decoration: none;
+        color: black;
+    }
+
+    .submenu li a:hover{
+        
+        color: #d4af36;
+    }
+
 
 .banner{
   height: 700px;
@@ -30,7 +97,7 @@
 }
 
 .form-subscribe{
-  width:500px !important;
+  width:100% !important;
   border-radius: 0px !important;
 }
 
@@ -71,6 +138,21 @@
   width: 100%;
   margin-top: 5px;
   border-radius: 10px;
+}
+
+.article-list img{
+  height: 300px;
+  object-fit: cover;
+}
+
+.article-create{
+  font-size: 12px;
+  color: #8a8989;
+}
+
+.article-title{
+  font-weight: bold;
+  font-size: 18px;
 }
 
 

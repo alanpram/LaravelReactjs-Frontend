@@ -3,9 +3,9 @@ import { Row, Col } from "react-bootstrap";
 
 const ProductTopComponent = ({ data }) => {
     return (
-        <Row>
+        <Row className="mb-5">
             {Object.keys(data).map((itemKey) => (
-                <Col xs={6} md={3} className='mb-3 text-center' key={data[itemKey].flagship.item_id}>
+                <Col xs={6} md={3} className='mb-3 text-center' key={data[itemKey].flagship.item_uuid}>
                     <img className='w-100 mg-mt-5 product-image' src={'http://localhost:1234' + data[itemKey].flagship.link_image[0].media_path +'/'+ data[itemKey].flagship.link_image[0].media_file}/>
                     <p className="mt-3">
                         {data[itemKey].flagship.item_name}

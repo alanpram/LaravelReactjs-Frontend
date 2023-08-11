@@ -10,7 +10,7 @@ import ArticleComponent from './component/home/ArticleComponent';
 import BannerPromoComponent from './component/home/BannerPromoComponent';
 import FooterComp from './component/home/FooterComp';
 
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
 import SkeletonCard from './component/plugin/SkeletonCardComponent';
 
@@ -241,34 +241,7 @@ function App() {
         <BannerPromoComponent data={bannerPromo}/>
       )}
 
-      <div className="p-5 mb-5">
-            <Container className=''>
-                <h3 className=" text-center">Subscribe Our Newsletter</h3>
-                <Row className="justify-content-center">
-                    <Col md={6} xs={12}>
-                        <Form>
-                            <div className="d-flex align-items-center justify-content-center mt-3">
-                                <Form.Group controlId="exampleForm.ControlInput1" className="w-100">
-                                    <Form.Control className="form-subscribe" type="email" placeholder="name@example.com" />
-                                </Form.Group>
-                                <Button className="btn btn-danger btn-form-subscribe">Subscribe</Button>
-                            </div>
-                        </Form>
-                    </Col>
-                </Row>
-                {loadArticle ? (
-                  <Row className="mt-5">
-                    {[...Array(4)].map((_, index) => (
-                      <Col key={index} xs={6} md={3} className='mb-3'>
-                        <SkeletonCard />
-                      </Col>
-                    ))}
-                </Row>
-                ):(
-                  <ArticleComponent data={article}/>
-                )}
-            </Container>
-        </div>
+      <ArticleComponent data={article}/>
 
       <FooterComp/>
     </div>
