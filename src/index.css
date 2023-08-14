@@ -1,3 +1,24 @@
+.card{
+  height: 400px !important;
+  background-color: #b61818 !important;
+  border: none !important;
+}
+
+.skeleton-content{
+  height: 250px;
+  background-color: #eeeeee !important;
+}
+
+.skeleton-card-title{
+  height: 50px;
+  background-color: #ffffff;
+}
+
+.skeleton-card-body{
+  height: 300px;
+  background-color: #ffffff;
+}
+
 .navbar-brand img{
   width: 200px;
   padding: 1px;
@@ -46,35 +67,34 @@
 }
 
 .menu{
-        font-weight: bold;
-        font-size: 12px;
-    }
+    font-weight: bold;
+    font-size: 12px;
+}
 
-    .submenu-border{
-        border-right: 1px solid rgba(128, 128, 128, 0.342);
-    }
+.submenu-border{
+    border-right: 1px solid rgba(128, 128, 128, 0.342);
+}
 
-    .submenu{
-        margin-top: -10px;
-        font-size: 12px;
-    }
+.submenu{
+    margin-top: -10px;
+    font-size: 12px;
+}
 
-    .submenu li{
-        margin-left: -32px;
-        margin-top: 5px;
-        list-style: none;
-    }
+.submenu li{
+    margin-left: -32px;
+    margin-top: 5px;
+    list-style: none;
+}
 
-    .submenu li a{
-        text-decoration: none;
-        color: black;
-    }
+.submenu li a{
+    text-decoration: none;
+    color: black;
+}
 
-    .submenu li a:hover{
-        
-        color: #d4af36;
-    }
-
+.submenu li a:hover{
+    
+    color: #d4af36;
+}
 
 .banner{
   height: 700px;
@@ -92,8 +112,13 @@
   width: 100%;
 }
 
-.content-promo-img{
-  width: 100%;
+.top-product{
+  border: 1px solid rgb(218, 218, 218);
+  height: 100%;
+}
+
+.top-product-title{
+  font-weight: 600;
 }
 
 .form-subscribe{
@@ -104,40 +129,6 @@
 .btn-form-subscribe{
   margin-left: -5px !important;
   border-radius: 0px !important;
-}
-
-.social-icon{
-  font-size: 25px;
-  margin-right: 14px;
-  margin-top: 20px;
-}
-
-.card{
-  height: 400px !important;
-  background-color: #e4e4e4 !important;
-  border: none !important;
-}
-
-.skeleton-content{
-  height: 250px;
-  background-color: #eeeeee !important;
-}
-
-
-.skeleton-card-title{
-  height: 50px;
-  background-color: #ffffff;
-}
-
-.skeleton-card-body{
-  height: 300px;
-  background-color: #ffffff;
-}
-
-.product-image {
-  width: 100%;
-  margin-top: 5px;
-  border-radius: 10px;
 }
 
 .article-list img{
@@ -153,6 +144,12 @@
 .article-title{
   font-weight: bold;
   font-size: 18px;
+}
+
+.social-icon{
+  font-size: 25px;
+  margin-right: 14px;
+  margin-top: 20px;
 }
 
 
