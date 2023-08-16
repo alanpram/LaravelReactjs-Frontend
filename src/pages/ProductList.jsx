@@ -26,12 +26,12 @@ function ProductList() {
     };
     
     fetchData();
-  },[]);
+  },[category]);
   
 
   return (
     <Container fluid className='content-body'>
-      {loadProductList ? (
+      {loadProductList || productList.length === 0 ? (
         <div className='py-5'>
            <div className='text-center mb-5'>
               <SkeletonPageTitle/>

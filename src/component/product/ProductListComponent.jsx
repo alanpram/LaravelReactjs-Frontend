@@ -18,7 +18,7 @@ const ProductListComponent = ({ data }) => {
                 <Row>
                     {Object.keys(data).map((itemKey) => (
                         <Col xs={6} md={3} className='mb-3 text-center' key={data[itemKey].flagship.item_uuid}>
-                            <img className='w-100 mg-mt-5 product-image' src={'http://localhost:1234' + data[itemKey].flagship.link_image[0].media_path +'/'+ data[itemKey].flagship.link_image[0].media_file}/>
+                            <img className='w-100 mg-mt-5 product-image bg-dark' src={'http://localhost:1234' + data[itemKey].flagship.link_image[0].media_path +'/'+ data[itemKey].flagship.link_image[0].media_file}/>
                             <p className="mt-3">
                                 {data[itemKey].flagship.item_name}
                                 <br></br>
