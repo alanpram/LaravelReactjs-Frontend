@@ -28,6 +28,7 @@ function SwiperComponent({ banners }) {
             src={'http://localhost:1234' +banner.link_image.media_path + banner.link_image.media_file}
             alt={banner.link_image.media_alt}
           />
+          <div className="gradient-overlay"></div>
         </SwiperSlide>
       ))}
     </Swiper>

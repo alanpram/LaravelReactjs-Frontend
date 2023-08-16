@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import Banner from '../component/banner/BannerComponent';
+import TopCategory from '../component/category/TopCategory';
 
-import Navbar from './component/home/NavbarComponent';
-import Banner from './component/home/BannerComponent';
-import TopCategory from './component/home/TopCategory';
+import ArticleComponent from '../component/article/ArticleComponent';
+import BannerPromoComponent from '../component/banner/BannerPromoComponent';
+import FooterComp from '../layout/FooterComp';
 
-import ArticleComponent from './component/home/ArticleComponent';
-import BannerPromoComponent from './component/home/BannerPromoComponent';
-import FooterComp from './component/home/FooterComp';
-
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import Skeleton from 'react-loading-skeleton';
-import SkeletonCard from './component/plugin/SkeletonCardComponent';
+import SkeletonCard from '../component/plugin/SkeletonCardComponent';
 
 import { BsFillImageFill,BsFillRocketFill,BsGlobeAsiaAustralia,BsFillAwardFill,BsLayersHalf,BsFillBrushFill,BsGrid1X2 } from "react-icons/bs";
-import ProductNewComponent from './component/home/ProductNewComponent';
-import ProductTopComponent from './component/home/ProductTopComponent';
+import ProductNewComponent from '../component/product/ProductNewComponent';
+import ProductTopComponent from '../component/product/ProductTopComponent';
 
-function App() {
+function Home() {
 
   const [banners, setBanners] = useState([]);
   const [loadBanners, setLoadBanners] = useState(true);
@@ -124,8 +122,6 @@ function App() {
   
   return (
     <div>
-      <Navbar/>
-
       {loadBanners ? (
         <div className='banner d-flex justify-content-center align-items-center'>
           <BsFillImageFill className='banner-icon pulse' />  
@@ -181,7 +177,7 @@ function App() {
 
       
       <Container>
-        <h4 className="mb-4 mt-5 text-center">TOP PRODUCT</h4>
+        <h4 className="mb-5 mt-5 text-center">TOP PRODUCT</h4>
         {loadTopProduct ? (
           <Row>
             {[...Array(8)].map((_, index) => (
@@ -241,11 +237,36 @@ function App() {
         <BannerPromoComponent data={bannerPromo}/>
       )}
 
-      <ArticleComponent data={article}/>
-
-      <FooterComp/>
+      <div className="p-5 mb-5">
+            <Container className=''>
+                <h3 className=" text-center">Subscribe Our Newsletter</h3>
+                <Row className="justify-content-center">
+                    <Col md={6} xs={12}>
+                        <Form>
+                            <div className="d-flex align-items-center justify-content-center mt-3">
+                                <Form.Group controlId="exampleForm.ControlInput1" className="w-100">
+                                    <Form.Control className="form-subscribe" type="email" placeholder="name@example.com" />
+                                </Form.Group>
+                                <Button className="btn btn-danger btn-form-subscribe">Subscribe</Button>
+                            </div>
+                        </Form>
+                    </Col>
+                </Row>
+                {loadArticle ? (
+                  <Row className="mt-5">
+                    {[...Array(4)].map((_, index) => (
+                      <Col key={index} xs={6} md={3} className='mb-3'>
+                        <SkeletonCard />
+                      </Col>
+                    ))}
+                </Row>
+                ):(
+                  <ArticleComponent data={article}/>
+                )}
+            </Container>
+        </div>
     </div>
   );
 }
 
-export default App;
+export default Home;

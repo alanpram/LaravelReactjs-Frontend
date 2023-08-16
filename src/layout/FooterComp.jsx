@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Logo from '../../assets/img/layout/logo-dark.png';
+import Logo from '../assets/img/layout/logo-dark.png';
 import { BsInstagram,BsFacebook,BsYoutube } from "react-icons/bs";
 import { AiOutlineYoutube,AiOutlineFacebook } from "react-icons/ai";
 import { BiLogoFacebook,BiLogoInstagram } from "react-icons/bi";

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Navbar, Container, Nav, NavDropdown, Button, Offcanvas, Card, Col, Row } from 'react-bootstrap';
-import Logo from '../../assets/img/layout/logo-dark.png';
+import Logo from '../assets/img/layout/logo-dark.png';
 import { BsSearch,BsPerson,BsCart4 } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 
 
@@ -16,7 +17,7 @@ const NavbarComponent = () => {
         <div>
             <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
                 <Container fluid>
-                <Navbar.Brand href="#">
+                <Navbar.Brand as={Link} to="/">
                     <img src={Logo} alt="Logo"/>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" onClick={toggleOffcanvas} />
@@ -32,59 +33,59 @@ const NavbarComponent = () => {
                                     <Col className="submenu-border">
                                     <p className="menu">LIVING ROOM</p>
                                     <ul className="submenu">
-                                        <li><a href="#">SOFA & DAYBED</a></li>
-                                        <li><a href="#">SOFA MODULAR</a></li>
-                                        <li><a href="#">ARMCHAIR</a></li>
-                                        <li><a href="#">STOOL</a></li>
-                                        <li><a href="#">COFFEE TABLE</a></li>
-                                        <li><a href="#">SIDE TABLE</a></li>
-                                        <li><a href="#">CONSOLE TABLE</a></li>
+                                        <li><Link to="/product/sofa">SOFA & DAYBED</Link></li>
+                                        <li><Link to="/product/sofa-modular">SOFA MODULAR</Link></li>
+                                        <li><Link to="/product/armchair">ARMCHAIR</Link></li>
+                                        <li><Link to="/product/stool">STOOL</Link></li>
+                                        <li><Link to="/product/coffee-table">COFFEE TABLE</Link></li>
+                                        <li><Link to="/product/side-table">SIDE TABLE</Link></li>
+                                        <li><Link to="/product/console-table">CONSOLE TABLE</Link></li>
                                     </ul>
                                     </Col>
                                     <Col className="submenu-border">
                                     <p className="menu">DINING ROOM</p>
                                     <ul className="submenu">
-                                        <li><a href="#">DINING TABLE</a></li>
-                                        <li><a href="#">DINING CHAIR</a></li>
-                                        <li><a href="#">SIDEBOARD</a></li>
-                                        <li><a href="#">BAR CHAIR</a></li>
+                                        <li><Link to="/product/dining-table">DINING TABLE</Link></li>
+                                        <li><Link to="/product/dining-chair">DINING CHAIR</Link></li>
+                                        <li><Link to="/product/sideboard">SIDEBOARD</Link></li>
+                                        <li><Link to="/product/bar-chair">BAR CHAIR</Link></li>
                                     </ul>
                                     </Col>
                                     <Col className="submenu-border">
                                     <p className="menu">BED ROOM</p>
                                     <ul className="submenu">
-                                        <li><a href="#">BED</a></li>
-                                        <li><a href="#">BENCH</a></li>
-                                        <li><a href="#">CHEST</a></li>
-                                        <li><a href="#">BEDSIDE TABLE</a></li>
-                                        <li><a href="#">VANITY</a></li>
+                                        <li><Link to="/product/bed">BED</Link></li>
+                                        <li><Link to="/product/bench">BENCH</Link></li>
+                                        <li><Link to="/product/chest">CHEST</Link></li>
+                                        <li><Link to="/product/bedside-table">BEDSIDE TABLE</Link></li>
+                                        <li><Link to="/product/vanity">VANITY</Link></li>
                                     </ul>
                                     </Col>
                                     <Col className="submenu-border">
                                     <p className="menu">DECORATION</p>
                                     <ul className="submenu">
-                                        <li><a href="#">LIGHTING</a></li>
-                                        <li><a href="#">VASE</a></li>
-                                        <li><a href="#">MIRROR</a></li>
-                                        <li><a href="#">CLOCK</a></li>
-                                        <li><a href="#">GLOBE</a></li>
-                                        <li><a href="#">PHOTO FRAME</a></li>
-                                        <li><a href="#">ACCESSORIES</a></li>
+                                        <li><Link to="/product/lighting">LIGHTING</Link></li>
+                                        <li><Link to="/product/vase">VASE</Link></li>
+                                        <li><Link to="/product/mirror">MIRROR</Link></li>
+                                        <li><Link to="/product/clock">CLOCK</Link></li>
+                                        <li><Link to="/product/globe">GLOBE</Link></li>
+                                        <li><Link to="/product/photo-frame">PHOTO FRAME</Link></li>
+                                        <li><Link to="/product/accessories">ACCESSORIES</Link></li>
                                     </ul>
                                     </Col>
                                     <Col>
                                     <p className="menu">CARPET</p>
                                     <ul className="submenu">
-                                        <li><a href="#">LUXURY CARPET</a></li>
-                                        <li><a href="#">REGULAR CARPET</a></li>
-                                        <li><a href="#">SAJADAH</a></li>
+                                        <li><Link to="/product/luxury-carpet">LUXURY CARPET</Link></li>
+                                        <li><Link to="/product/regular-carpet">REGULAR CARPET</Link></li>
+                                        <li><Link to="/product/sajadah">SAJADAH</Link></li>
                                     </ul>
                                     </Col>
                             </Row>
                             </Container>
                         </NavDropdown>
-                        <Nav.Link href="#action2">ABOUT US</Nav.Link>
-                        <Nav.Link href="#action2">STORE</Nav.Link>
+                        <Nav.Link as={Link} to="/about" >ABOUT US</Nav.Link>
+                        <Nav.Link as={Link} to="/store">STORE</Nav.Link>
                     </Nav>
                     <div className="d-flex">
                         <BsSearch className="text-light" style={{ fontSize: 17, marginRight: '22px',marginLeft:'50px',marginTop:'3px' }} />
