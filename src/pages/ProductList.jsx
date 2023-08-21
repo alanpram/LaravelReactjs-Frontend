@@ -18,7 +18,7 @@ function ProductList() {
     const fetchData = async () => {
       try{
         const response = await axios.get('http://127.0.0.1:1234/api/product/'+category);
-        setProductList(response.data.data);
+        setProductList(response.data);
         setLoadProductList(false);
       }catch(error){
         console.log(error);

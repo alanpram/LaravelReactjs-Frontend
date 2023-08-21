@@ -19,7 +19,7 @@ const ArticleComponent = ({data}) => {
                 <Col md={4} className='mb-3' key={data.article_uuid}>
                     <div className='article-list'>
                         <Card className="bg-transparent">
-                            <Card.Img variant="top" src={'http://localhost:1234' + data.link_image.media_path + data.link_image.media_file} />
+                            <Card.Img className="image-load-md bg-light" variant="top" src={'http://localhost:1234' + data.link_image.media_path + data.link_image.media_file} />
                             <div className="mt-3">
                                 <span className="article-create">{formatDate(data.created_at)}</span>
                                 <p className="article-title text-capitalize">{data.article_title}</p>

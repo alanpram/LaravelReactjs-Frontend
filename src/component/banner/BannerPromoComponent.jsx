@@ -12,7 +12,7 @@ const BannerPromoComponent = ({data}) => {
         <div className="mb-5">
             <Container className=''>
                 <div className='banner-promo mt-5'>
-                    <img className='w-100 mg-mt-5' src={'http://localhost:1234' +data.link_image.media_path + data.link_image.media_file} alt={data.link_image.media_alt}/>
+                    <img className='w-100' src={'http://localhost:1234' +data.link_image.media_path + data.link_image.media_file} alt={data.link_image.media_alt}/>
                 </div>
             </Container>
         </div>

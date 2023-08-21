@@ -5,7 +5,7 @@
 }
 
 .skeleton-content{
-  height: 250px;
+  height: 200px;
   background-color: #eeeeee !important;
 }
 
@@ -169,10 +169,17 @@
 
 .product-list-text{
   max-width: 900px;
+  margin-bottom: 100px;
 }
 
-.product-image{
-  min-height: 200px;
+.image-load{
+  min-width: 100%;
+  min-height: 150px;
+}
+
+.image-load-md{
+  min-width: 100%;
+  min-height: 150px;
 }
 
 @media only screen and (min-width: 992px) {
@@ -184,6 +191,16 @@
   .content-promo-img{
     object-fit: cover;
   }
+
+  .image-load{
+    min-width: 100%;
+    min-height: 200px;
+  }
+
+  .image-load-md{
+  min-width: 100%;
+  min-height: 250px;
+}
 }
 
 .pulse {
