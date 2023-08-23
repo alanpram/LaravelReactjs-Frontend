@@ -1,0 +1,33 @@
+
+/* slider top */
+.mySwiper img {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+/* slider bottom */
+.mySwiper2 img {
+  border: 1px solid rgb(201, 201, 201);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: contain;
+}
+
+.mySwiper2 .swiper-slide{
+  width: 100px !important;
+}
+/* 
+.mySwiper{
+  background-color: rgb(240, 240, 240)
+} */
+
+
+
+
+
+

@@ -17,7 +17,7 @@ function ProductList() {
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await axios.get('http://127.0.0.1:1234/api/product/'+category);
+        const response = await axios.get('http://127.0.0.1:1234/api/product-list/'+category);
         setProductList(response.data);
         setLoadProductList(false);
       }catch(error){
@@ -41,7 +41,7 @@ function ProductList() {
           <div className='product-list px-5 mb-5'>
               <Row>
                 {[...Array(8)].map((_, index) => (
-                    <Col key={index} className='mb-3' md={3} xs={6}>
+                    <Col key={index} className='mb-3' md={4} xs={6}>
                       <SkeletonCard />
                     </Col>
                   ))}

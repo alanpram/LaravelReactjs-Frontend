@@ -11,7 +11,7 @@ const ProductTopComponent = ({ data }) => {
                         <p className="mt-3">
                             <span className="top-product-title">{data[itemKey].flagship.item_name}</span>
                             <br></br>
-                            <span className="mt-1">From {parseInt(data[itemKey].flagship.link_price.product_price).toLocaleString().replace(/,/g, '.')}</span>
+                            <span className="mt-1 from">From</span><span>{parseInt(data[itemKey].flagship.link_price.product_price).toLocaleString().replace(/,/g, '.')}</span>
                         </p>
                         <p className="mt-1"></p>
                     </div>
