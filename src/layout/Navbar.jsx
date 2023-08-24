@@ -18,6 +18,10 @@ const NavbarComponent = () => {
         setDropdownOpen(!dropdownOpen);
     }
 
+    const toggleDropdownClose = () => {
+        setDropdownOpen(false);
+    }
+
     return (
         <div>
             <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
@@ -95,8 +99,8 @@ const NavbarComponent = () => {
                             </Row>
                             </Container>
                         </NavDropdown>
-                        <Nav.Link as={Link} to="/about" >ABOUT US</Nav.Link>
-                        <Nav.Link as={Link} to="/store">STORE</Nav.Link>
+                        <Nav.Link as={Link} to="/about" onClick={toggleDropdownClose}>ABOUT US</Nav.Link>
+                        <Nav.Link as={Link} to="/store" onClick={toggleDropdownClose}>STORE</Nav.Link>
                     </Nav>
                     <div className="d-flex">
                         <BsSearch className="text-light" style={{ fontSize: 17, marginRight: '22px',marginLeft:'50px',marginTop:'3px' }} />

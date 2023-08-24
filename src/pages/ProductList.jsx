@@ -41,7 +41,7 @@ function ProductList() {
           <div className='product-list px-5 mb-5'>
               <Row>
                 {[...Array(8)].map((_, index) => (
-                    <Col key={index} className='mb-3' md={4} xs={6}>
+                    <Col key={index} className='mb-3' md={4} xs={12}>
                       <SkeletonCard />
                     </Col>
                   ))}

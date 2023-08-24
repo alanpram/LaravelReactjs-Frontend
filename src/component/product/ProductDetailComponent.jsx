@@ -68,9 +68,12 @@ export default function ProductDetailComponent({data}) {
     }else{
       dimensionValue += ' cm, '
     }
-    
+
   }
-  
+
+  // split finishing
+  const finishing = item.link_frame.frame_finishing.split('/');
+
 
   return (
     <>
@@ -217,11 +220,9 @@ export default function ProductDetailComponent({data}) {
                 <p>{dimensionValue}</p>
 
                 <h5>Finishing</h5>
-                <p>cushion:</p>
-                <p>1 seat cushion</p>
-                <p>2 cushion 40cm x 40cm</p>
-                <p>feet:</p>
-                <p>painting black and brass caps</p>
+                {finishing.map((finishing, index) => (
+                  <p key={index} dangerouslySetInnerHTML={{ __html: `<span class="bold-500">${finishing.split(':')[0]}</span> :<br />${finishing.split(':')[1]}` }}></p>
+                ))}
               </Col>
             </Row>
           </Container>
