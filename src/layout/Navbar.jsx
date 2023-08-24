@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Navbar, Container, Nav, NavDropdown, Button, Offcanvas, Card, Col, Row } from 'react-bootstrap';
 import Logo from '../assets/img/layout/logo-dark.png';
-import { BsSearch,BsPerson,BsCart4 } from "react-icons/bs";
+import { BsSearch, BsPerson, BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 
@@ -9,18 +9,34 @@ import { Link } from "react-router-dom";
 const NavbarComponent = () => {
     const [showOffcanvas, setShowOffcanvas] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
+    //set sidebar to open and close
     const toggleOffcanvas = () => {
         setShowOffcanvas(!showOffcanvas);
     }
 
+    //set dropdown menu to open and close
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     }
 
-    const toggleDropdownClose = () => {
-        setDropdownOpen(false);
-    }
+    useEffect(() => {
+        // Function to close dropdown when clicking outside of it
+        const closeDropdown = (event) => {
+            if (dropdownOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setDropdownOpen(false);
+            }
+        }
+
+        // Add event listener when the component mounts
+        document.addEventListener("click", closeDropdown);
+
+        // Remove event listener when the component unmounts
+        return () => {
+            document.removeEventListener("click", closeDropdown);
+        };
+    }, [dropdownOpen]);
 
     return (
         <div>
@@ -36,12 +52,13 @@ const NavbarComponent = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                         >
-                        <NavDropdown 
-                            title="PRODUCTS" 
-                            id="basic-nav-dropdown" 
-                            className="dropdown-custom" 
+                        <NavDropdown
+                            title="PRODUCTS"
+                            id="basic-nav-dropdown"
+                            className="dropdown-custom"
                             show={dropdownOpen}
                             onClick={toggleDropdown}
+                            ref={dropdownRef} 
                         >
                             <Container>
                                 <Row>
@@ -99,8 +116,8 @@ const NavbarComponent = () => {
                             </Row>
                             </Container>
                         </NavDropdown>
-                        <Nav.Link as={Link} to="/about" onClick={toggleDropdownClose}>ABOUT US</Nav.Link>
-                        <Nav.Link as={Link} to="/store" onClick={toggleDropdownClose}>STORE</Nav.Link>
+                        <Nav.Link as={Link} to="/about">ABOUT US</Nav.Link>
+                        <Nav.Link as={Link} to="/store" >STORE</Nav.Link>
                     </Nav>
                     <div className="d-flex">
                         <BsSearch className="text-light" style={{ fontSize: 17, marginRight: '22px',marginLeft:'50px',marginTop:'3px' }} />
