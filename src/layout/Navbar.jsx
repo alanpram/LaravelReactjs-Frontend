@@ -55,12 +55,12 @@ const NavbarComponent = () => {
                         <NavDropdown
                             title="PRODUCTS"
                             id="basic-nav-dropdown"
-                            className="dropdown-custom"
+                            className="nav-dropdown-custom"
                             show={dropdownOpen}
                             onClick={toggleDropdown}
                             ref={dropdownRef} 
                         >
-                            <Container>
+                            <Container className="nav-dropdown-menu-custom">
                                 <Row>
                                     <Col className="submenu-border">
                                     <p className="menu">LIVING ROOM</p>
@@ -110,7 +110,7 @@ const NavbarComponent = () => {
                                     <ul className="submenu">
                                         <li><Link to="/product-list/luxury-carpet">LUXURY CARPET</Link></li>
                                         <li><Link to="/product-list/regular-carpet">REGULAR CARPET</Link></li>
-                                        <li><Link to="/product-list/sajadah">SAJADAH</Link></li>
+                                        <li><Link to="/product-list/premium-sajadah">SAJADAH</Link></li>
                                     </ul>
                                     </Col>
                             </Row>
