@@ -10,8 +10,11 @@ const ProductListComponent = ({ data }) => {
     const dataList = data.data;
     const message = data.message;
 
-    // state to save the selected checkbox
+    // state to handle filter
     const [selectedFilters, setSelectedFilters] = useState([]);
+    const [isProductListVisible, setProductListVisible] = useState(true);
+    const [dataFilter,setDataFilter] = useState([]);
+
     // state to save the value change on the range slider
     const [sliderValue, setSliderValue] = useState(0);
 
@@ -26,6 +29,40 @@ const ProductListComponent = ({ data }) => {
             setSelectedFilters([...selectedFilters, filter]);
         }
     };
+
+    // use effect for get data filter from api
+    useEffect(() => {
+        const fetchData = async () => {
+            try{
+                const response = await axios.get("http://localhost:1234/api/product-filter",
+                    {
+                        params: {
+                            filters: selectedFilters,
+                            category: message.category
+                        },
+                    }
+                );
+
+            setDataFilter(response.data.data);
+            
+            }catch (error) {
+                console.log(error);
+            }
+        };
+
+        //check available filter on state
+        if (selectedFilters.length > 0) {
+
+            setProductListVisible(false);
+
+            fetchData();
+            
+        }else{
+
+            setProductListVisible(true);
+
+        }
+    }, [selectedFilters]);
     
     //function to handle changes to range slider
     const handleSliderChange = (event) => {
@@ -45,7 +82,8 @@ const ProductListComponent = ({ data }) => {
             </div>
 
             <div className="filter text-center align-item-center d-flex justify-content-center">
-                <Dropdown className="filter-menu">
+
+                <Dropdown className={`filter-menu ${message.category != 'Sofa' && 'd-none'} `}>
                     <Dropdown.Toggle variant="success" id="dropdown-basic" className="btn-light">
                         SEATER
                     </Dropdown.Toggle>
@@ -117,7 +155,7 @@ const ProductListComponent = ({ data }) => {
 
                     <Dropdown.Menu>
                         <Container className="mt-2 mb-3">
-                            <p>Lenght ( 0 - {sliderValue} cm )</p>
+                            <p>Length / Diameter<br></br> ( 0 - {sliderValue} cm )</p>
                             <input
                                 type="range"
                                 id="rangeSlider"
@@ -160,8 +198,8 @@ const ProductListComponent = ({ data }) => {
                 </Container>
             </div>
 
-            <div className="product-list px-5 mb-5">
-                <Row>
+            <div className="product-list px-5 mb-5 mt-5">
+                <Row className={`product-list-base ${isProductListVisible ? "" : "d-none"}`}>
                     {Object.keys(dataList).map((itemKey) => (
                         <Col
                             xs={12}
@@ -184,6 +222,37 @@ const ProductListComponent = ({ data }) => {
                                     <span>
                                         <sup className="from">From </sup>
                                         {parseInt(dataList[itemKey].price.link_price.product_price).toLocaleString().replace(/,/g, '.')}
+                                    </span>
+                                </div>
+                            </Link>
+                            <p className="text-light mt-1"></p>
+                        </Col>
+                    ))}
+                </Row>
+
+                <Row className="">
+                    {Object.values(dataFilter).map((item) => (
+                        <Col
+                            xs={12}
+                            md={4}
+                            className="mb-3 text-center"
+                            key={item.flagship.item_uuid}
+                        >
+                            <Link to={'/product-detail/' + item.flagship.item_slug} className="product-title">
+                                <img
+                                    className="w-100 mg-mt-5 image-load bg-light"
+                                    src={'http://localhost:1234' + item.flagship.link_image[0].media_path + '/' + item.flagship.link_image[0].media_file}
+                                    onError={(e) => {
+                                        e.target.src = BaseImage;
+                                    }}
+                                    alt={item.flagship.link_image[0].media_file}
+                                />
+                                {item.flagship.item_name}
+                                <br></br>
+                                <div className="price-container mt-1">
+                                    <span>
+                                        <sup className="from">From </sup>
+                                        {parseInt(item.price.link_price.product_price).toLocaleString().replace(/,/g, '.')}
                                     </span>
                                 </div>
                             </Link>
