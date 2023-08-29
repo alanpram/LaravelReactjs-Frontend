@@ -23,7 +23,7 @@ function ProductDetail() {
     }
 
     fetchData();
-  },[]);
+  },[item_slug]);
 
 
   return (

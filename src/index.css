@@ -312,6 +312,27 @@ sub {
   color: rgb(128, 128, 128);
 }
 
+.cart-icon{
+  margin-top: 0px;
+  display: flex;
+}
+
+.cart-icon .badge{
+  position: absolute;
+  top: -17px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #b39b4c !important;
+  font-size: 10px !important;
+  width: 20px; 
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (min-width: 992px) {
   .swiper-image{
       height: 700px;

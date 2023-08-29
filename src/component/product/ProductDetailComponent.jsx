@@ -18,6 +18,7 @@ import "swiper/css/thumbs";
 
 import styles from "../../assets/custom-swiper.module.css";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function ProductDetailComponent({data}) {
   
@@ -37,6 +38,8 @@ export default function ProductDetailComponent({data}) {
 
   // Extract item data
   const item = data.data.data;
+
+  const collection = data.data.collection;
 
   // Determine the image to use
   let image = '';
@@ -164,31 +167,24 @@ export default function ProductDetailComponent({data}) {
                 
                 <h5>Get it on 17 October 2023</h5>
                 <Button className="bg-dark w-100 mt-3 mb-3">Add To Cart</Button>
-              <h5 className="mt-5">Same Collection</h5>
+              <h5 className={`mt-5 ${collection.length > 0 ? '' :'d-none'}`}>Same Collection</h5>
               <div className="product-same-collection mt-5">
-                <div className="d-flex mt-3">
-                  <img src={BaseImage}/>
-                  <div className="">
-                    <span>sdfdsfdsfdsf</span>
-                    <h5>Rp.24.000.000</h5>
-                  </div>
-                </div>
-                  
-                <div className="d-flex mt-3">
-                  <img src={BaseImage}/>
-                  <div className="">
-                    <span>sdfdsfdsfdsf</span>
-                    <h5>Rp.24.000.000</h5>
-                  </div>
-                </div>
-
-                <div className="d-flex mt-3">
-                  <img src={BaseImage}/>
-                  <div className="">
-                    <span>sdfdsfdsfdsf</span>
-                    <h5>Rp.24.000.000</h5>
-                  </div>
-                </div>
+                {Object.keys(collection).map((item) => (
+                  <Link key={collection[item].flagship.item_uuid} to={'/product-detail/' + collection[item].flagship.item_slug} className="product-title">
+                    <div className="d-flex mt-3">
+                      <img src={'http://localhost:1234' + collection[item].flagship.link_image[0].media_path + '/' + collection[item].flagship.link_image[0].media_file}/>
+                      <div className="">
+                        {collection[item].flagship.item_name}
+                         <div className="price-container mt-1">
+                            <span>
+                                <sup className="from">From </sup>
+                                Rp.{parseInt(collection[item].price.link_price.product_price).toLocaleString().replace(/,/g,'.')}
+                            </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
         </Col>
@@ -221,7 +217,7 @@ export default function ProductDetailComponent({data}) {
 
                 <h5>Finishing</h5>
                 {finishing.map((finishing, index) => (
-                  <p key={index} dangerouslySetInnerHTML={{ __html: `<span class="bold-500">${finishing.split(':')[0]}</span> :<br />${finishing.split(':')[1]}` }}></p>
+                  <p key={index} dangerouslySetInnerHTML={{ __html: `<span className="bold-500">${finishing.split(':')[0]}</span> :<br />${finishing.split(':')[1]}` }}></p>
                 ))}
               </Col>
             </Row>

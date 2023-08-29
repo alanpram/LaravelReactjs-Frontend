@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Navbar, Container, Nav, NavDropdown, Button, Offcanvas, Card, Col, Row } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Button, Offcanvas, Card, Col, Row, Badge } from 'react-bootstrap';
 import Logo from '../assets/img/layout/logo-dark.png';
 import { BsSearch, BsPerson, BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -120,9 +120,16 @@ const NavbarComponent = () => {
                         <Nav.Link as={Link} to="/store" >STORE</Nav.Link>
                     </Nav>
                     <div className="d-flex">
-                        <BsSearch className="text-light" style={{ fontSize: 17, marginRight: '22px',marginLeft:'50px',marginTop:'3px' }} />
-                        <BsCart4 className="text-light" style={{ fontSize: 20, marginRight: '20px' }} />
-                        <BsPerson className="text-light" style={{ fontSize: 20 }} />
+                        <BsSearch className="text-light" style={{ fontSize: 17, marginRight: "22px", marginLeft: "50px", marginTop: "3px" }} />
+
+                        <div className="cart-icon" style={{ position: "relative" }}>
+                            <BsCart4 className="text-light" style={{ fontSize: 20, marginRight: "20px" }} />
+                            <Badge pill bg="danger">
+                            0
+                            </Badge>
+                        </div>
+
+                        <BsPerson className="text-light" style={{ fontSize: 23 }} />
                     </div>
                 </Navbar.Collapse>
                 </Container>
