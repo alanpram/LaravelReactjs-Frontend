@@ -20,7 +20,7 @@ const ProductListComponent = ({ data }) => {
     const [dataFilter,setDataFilter] = useState([]);
 
     // state to save the value change on the range slider
-    const [sliderValue, setSliderValue] = useState(1);
+    const [sliderValue, setSliderValue] = useState(0);
 
     // function to save or delete selected checkbox
     const toggleFilter = (filter) => {
@@ -40,6 +40,41 @@ const ProductListComponent = ({ data }) => {
         }
     };
 
+    // use effect for get data filter from api
+    useEffect(() => {
+        const fetchData = async () => {
+            try{
+                const response = await axios.get("http://localhost:1234/api/product-filter",
+                    {
+                        params: {
+                            filters: selectedFilters,
+                            category: message.category,
+                            length: valueLength,
+                            width:valueWidth
+                        },
+                    }
+                );
+
+            setDataFilter(response.data.data);
+            
+            }catch (error) {
+                console.log(error);
+            }
+        };
+
+        //check available filter on state
+        if (selectedFilters.length > 0) {
+
+            setProductListVisible(false);
+
+            fetchData();
+            
+        }else{
+
+            setProductListVisible(true);
+
+        }
+    }, [selectedFilters]);
 
     //state for handle slider length
     const [valueLength, setValueLength] = useState([0, 350]);
@@ -76,44 +111,6 @@ const ProductListComponent = ({ data }) => {
     const resetDiameter = () => {
         setValueDiameter([0, 350]);
     };
-
-    // use effect for get data filter from api
-    useEffect(() => {
-        const fetchData = async () => {
-            try{
-                const response = await axios.get("http://localhost:1234/api/product-filter",
-                    {
-                        params: {
-                            filters: selectedFilters,
-                            category: message.category,
-                            length: valueLength,
-                            height:valueHeight,
-                            diameter:valueDiameter
-                        },
-                    }
-                );
-
-            setDataFilter(response.data.data);
-            
-            }catch (error) {
-                console.log(error);
-            }
-        };
-
-        //check available filter on state
-        if ( selectedFilters.length > 0 ) {
-
-            setProductListVisible(false);
-
-            fetchData();
-            
-        }else{
-
-            setProductListVisible(true);
-
-        }
-
-    }, [selectedFilters]);
 
     return (
         <>
@@ -206,9 +203,6 @@ const ProductListComponent = ({ data }) => {
                                 value={valueLength}
                                 onChange={handleChangeLength}
                                 valueLabelDisplay="auto"
-                                onChangeCommitted={() => {
-                                    console.log("oke");
-                                }}
                                 min={0}
                                 max={350}
                             />
@@ -302,15 +296,7 @@ const ProductListComponent = ({ data }) => {
                         <Col
                             xs={12}
                             md={4}
-                            className={
-                                `mb-3 text-center 
-                                ${
-                                    (dataList[itemKey].length >= valueLength[0] && dataList[itemKey].length <= valueLength[1]) &&
-                                    (dataList[itemKey].height >= valueHeight[0] && dataList[itemKey].height <= valueHeight[1]) &&
-                                    (dataList[itemKey].diameter >= valueDiameter[0] && dataList[itemKey].diameter <= valueDiameter[1])  
-                                    ? '' : 'd-none'
-                                }`
-                            }
+                            className="mb-3 text-center"
                             key={dataList[itemKey].flagship.item_uuid}
                         >
                             <Link to={'/product-detail/' + dataList[itemKey].flagship.item_slug} className="product-title">
@@ -341,17 +327,8 @@ const ProductListComponent = ({ data }) => {
                         <Col
                             xs={12}
                             md={4}
-                            className={
-                                `mb-3 text-center 
-                                ${
-                                    (item.length >= valueLength[0] && item.length <= valueLength[1]) &&
-                                    (item.height >= valueHeight[0] && item.height <= valueHeight[1]) &&
-                                    (item.diameter >= valueDiameter[0] && item.diameter <= valueDiameter[1])  
-                                    ? '' : 'd-none'
-                                }`
-                            }
+                            className="mb-3 text-center"
                             key={item.flagship.item_uuid}
-                            length={item.length}
                         >
                             <Link to={'/product-detail/' + item.flagship.item_slug} className="product-title">
                                 <img
