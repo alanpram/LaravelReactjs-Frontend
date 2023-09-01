@@ -10,6 +10,7 @@ function ProductDetail() {
 
   const [productDetail,setProductDetail] = useState([]);
   const [loadProductdetail,setLoadProductDetail] = useState(true);
+  
 
   useEffect(() => {
     const fetchData = async () => {

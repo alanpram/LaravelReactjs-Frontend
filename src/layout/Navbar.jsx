@@ -122,12 +122,12 @@ const NavbarComponent = () => {
                     <div className="d-flex">
                         <BsSearch className="text-light" style={{ fontSize: 17, marginRight: "22px", marginLeft: "50px", marginTop: "3px" }} />
 
-                        <div className="cart-icon" style={{ position: "relative" }}>
+                        <Link to="/cart" className="cart-icon" style={{ position: "relative" }}>
                             <BsCart4 className="text-light" style={{ fontSize: 20, marginRight: "20px" }} />
                             <Badge pill bg="danger">
                             0
                             </Badge>
-                        </div>
+                        </Link>
 
                         <BsPerson className="text-light" style={{ fontSize: 23 }} />
                     </div>

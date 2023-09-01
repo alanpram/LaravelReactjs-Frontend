@@ -314,14 +314,27 @@ const ProductListComponent = ({ data }) => {
                             key={dataList[itemKey].flagship.item_uuid}
                         >
                             <Link to={'/product-detail/' + dataList[itemKey].flagship.item_slug} className="product-title">
-                                <img
+                                <div className="product-list-image position-relative">
+                                    <img
                                     className="w-100 mg-mt-5 image-load bg-light"
                                     src={'http://localhost:1234' + dataList[itemKey].flagship.link_image[0].media_path + '/' + dataList[itemKey].flagship.link_image[0].media_file}
                                     onError={(e) => {
                                         e.target.src = BaseImage;
                                     }}
                                     alt={dataList[itemKey].flagship.link_image[0].media_file}
-                                />
+                                    />
+                                    {dataList[itemKey].flagship.link_image.length > 1 && 
+                                    <img
+                                            className="w-100 mg-mt-5 image-load bg-light overlay-image position-absolute"
+                                            src={'http://localhost:1234' + dataList[itemKey].flagship.link_image[1].media_path + '/' + dataList[itemKey].flagship.link_image[1].media_file}
+                                            onError={(e) => {
+                                                e.target.src = BaseImage;
+                                            }}
+                                            alt={dataList[itemKey].flagship.link_image[1].media_file}
+                                        /> 
+                                    }
+                                </div>
+
                                 {dataList[itemKey].flagship.item_name}
                                 <br></br>
                                 <div className="price-container mt-1">
@@ -354,14 +367,26 @@ const ProductListComponent = ({ data }) => {
                             length={item.length}
                         >
                             <Link to={'/product-detail/' + item.flagship.item_slug} className="product-title">
-                                <img
-                                    className="w-100 mg-mt-5 image-load bg-light"
-                                    src={'http://localhost:1234' + item.flagship.link_image[0].media_path + '/' + item.flagship.link_image[0].media_file}
-                                    onError={(e) => {
-                                        e.target.src = BaseImage;
-                                    }}
-                                    alt={item.flagship.link_image[0].media_file}
-                                />
+                                 <div className="product-list-image position-relative">
+                                    <img
+                                        className="w-100 mg-mt-5 image-load bg-light"
+                                        src={'http://localhost:1234' + item.flagship.link_image[0].media_path + '/' + item.flagship.link_image[0].media_file}
+                                        onError={(e) => {
+                                            e.target.src = BaseImage;
+                                        }}
+                                        alt={item.flagship.link_image[0].media_file}
+                                    />
+                                     {item.flagship.link_image.length > 1 && 
+                                     <img
+                                        className="w-100 mg-mt-5 image-load bg-light overlay-image position-absolute"
+                                        src={'http://localhost:1234' + item.flagship.link_image[1].media_path + '/' + item.flagship.link_image[1].media_file}
+                                        onError={(e) => {
+                                            e.target.src = BaseImage;
+                                        }}
+                                        alt={item.flagship.link_image[1].media_file}
+                                    />
+                                     }
+                                </div>
                                 {item.flagship.item_name}
                                 <br></br>
                                 <div className="price-container mt-1">

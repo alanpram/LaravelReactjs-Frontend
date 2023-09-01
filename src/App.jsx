@@ -7,6 +7,7 @@ import ProductDetail from './pages/ProductDetail';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Store from "./pages/Store";
 import Footer from "./layout/FooterComp";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/store" element={<Store />} />
           <Route path="/product-list/:category" element={<ProductList />} />
           <Route path="/product-detail/:item_slug" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer/>
       </div>

@@ -240,6 +240,17 @@ hr{
   margin-bottom: 50px;
 }
 
+.overlay-image {
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-list-image:hover .overlay-image {
+    opacity: 1;
+}
+
 .image-load{
   min-width: 100%;
   min-height: 100px;
@@ -334,6 +345,10 @@ sub {
 }
 
 @media only screen and (min-width: 992px) {
+
+  .offcanvas.show:not(.hiding), .offcanvas.showing{
+    width: 40%;
+  }
   .swiper-image{
       height: 700px;
       object-fit: cover;
@@ -370,4 +385,17 @@ sub {
     transform: scale(1);
   }
 
+}
+
+.animate-from-right {
+  animation: slideFromRight 0.3s ease;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
