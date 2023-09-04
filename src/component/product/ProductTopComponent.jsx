@@ -12,7 +12,7 @@ const ProductTopComponent = ({ data }) => {
                         <Link to={'/product-detail/' + data[itemKey].flagship.item_slug} className="product-title">
                                 {data[itemKey].flagship.item_name}
                                 <br></br>
-                                <div class="price-container mt-1">
+                                <div className="price-container mt-1">
                                     <span><sup className="from">From </sup>{parseInt(data[itemKey].flagship.link_price.product_price).toLocaleString().replace(/,/g, '.')}</span>
                                 </div>
                         </Link>

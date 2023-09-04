@@ -3,40 +3,42 @@ import { Navbar, Container, Nav, NavDropdown, Button, Offcanvas, Card, Col, Row,
 import Logo from '../assets/img/layout/logo-dark.png';
 import { BsSearch, BsPerson, BsCart4 } from "react-icons/bs";
 import { Link } from "react-router-dom";
-
-
+import { useCart } from "../component/checkout/CartContext";
 
 const NavbarComponent = () => {
-    const [showOffcanvas, setShowOffcanvas] = useState(false);
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const dropdownRef = useRef(null);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-    //set sidebar to open and close
-    const toggleOffcanvas = () => {
-        setShowOffcanvas(!showOffcanvas);
+  const { cartItemCount } = useCart();
+
+  // Set sidebar to open and close
+  const toggleOffcanvas = () => {
+    setShowOffcanvas(!showOffcanvas);
+  }
+
+  // Set dropdown menu to open and close
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  }
+
+  useEffect(() => {
+    // Function to close dropdown when clicking outside of it
+    const closeDropdown = (event) => {
+      if (dropdownOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
     }
 
-    //set dropdown menu to open and close
-    const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen);
-    }
+    // Add event listener when the component mounts
+    document.addEventListener("click", closeDropdown);
 
-    useEffect(() => {
-        // Function to close dropdown when clicking outside of it
-        const closeDropdown = (event) => {
-            if (dropdownOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setDropdownOpen(false);
-            }
-        }
+    // Remove event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", closeDropdown);
+    };
+  }, [dropdownOpen]);
 
-        // Add event listener when the component mounts
-        document.addEventListener("click", closeDropdown);
-
-        // Remove event listener when the component unmounts
-        return () => {
-            document.removeEventListener("click", closeDropdown);
-        };
-    }, [dropdownOpen]);
 
     return (
         <div>
@@ -125,7 +127,7 @@ const NavbarComponent = () => {
                         <Link to="/cart" className="cart-icon" style={{ position: "relative" }}>
                             <BsCart4 className="text-light" style={{ fontSize: 20, marginRight: "20px" }} />
                             <Badge pill bg="danger">
-                            0
+                            {cartItemCount}
                             </Badge>
                         </Link>
 
