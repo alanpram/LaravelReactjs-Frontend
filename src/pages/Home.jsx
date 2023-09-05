@@ -154,8 +154,8 @@ function Home() {
             
             <Row>
               <Col md={3}>
-                <h5 className="text-light mb-4 mt-5">New In Store</h5>
-                <p className='text-light'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates enim harum nam vero cupiditate recusandae amet ex tenetur, maxime repellat ad, velit expedita! Reprehenderit, ratione eius ex voluptatem doloremque consectetur?</p>
+                <h5 className="text-light mb-4">New In Store</h5>
+                <p className='text-light'>We present our latest furniture collection that combines beauty and functionality. These products represent a new exploration in interior design that will bring a fresh ambiance to your home.</p>
               </Col>
               <Col md={9}>
                 {loadNewProduct ? (

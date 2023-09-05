@@ -426,3 +426,36 @@ sub {
 .alert-notif button{
   border: 1px solid rgb(85, 85, 85);
 }
+
+.new-in-store-price{
+  color: #d4af36 !important;
+}
+
+.about-title{
+  margin-top: 150px;
+}
+
+.about-body {
+  background-image: url('assets/img/layout/about/bg-0005.jpg');
+  height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about-story {
+  background-image: url('assets/img/layout/about/bg-0004.jpg');
+  height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about-adaptation {
+  background-image: url('assets/img/layout/about/bg-0007.jpg');
+  height: 90vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.text-justify{
+  text-align: justify;
+}
