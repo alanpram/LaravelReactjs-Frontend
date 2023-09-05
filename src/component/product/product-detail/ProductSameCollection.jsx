@@ -10,7 +10,7 @@ function ProductSameCollection(data){
         <>
             {collection.length !== 0 && (
                 <Container className="text-center mt-5 mb-3">
-                    <h3 className="mb-5">Product Recommended</h3>
+                    <h3 className="mb-5">Same Collection</h3>
                     <Row className="mb-5 align-item-center justify-content-center">
                         {Object.keys(collection).map((item) => (
                         <Col xs={6} md={3} className='mb-3 text-center' key={collection[item].flagship.item_uuid}>

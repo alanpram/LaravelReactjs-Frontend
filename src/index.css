@@ -391,6 +391,10 @@ sub {
   animation: slideFromRight 0.3s ease;
 }
 
+.animate-to-right {
+  animation: slideToRight 0.3s ease;
+}
+
 @keyframes slideFromRight {
   from {
     transform: translateX(100%);
@@ -398,4 +402,27 @@ sub {
   to {
     transform: translateX(0);
   }
+}
+
+@keyframes slideToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.alert-notif{
+  color: #ffeeb6 !important;
+  margin-right: 10px;
+  width: 350px;
+  height: 150px;
+  margin-top: 75px;
+  border-bottom: 5px solid #b39b4c !important;
+  background-color: #333333 !important;
+}
+
+.alert-notif button{
+  border: 1px solid rgb(85, 85, 85);
 }

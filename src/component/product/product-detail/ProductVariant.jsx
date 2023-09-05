@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Offcanvas } from "react-bootstrap";
+import { Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function ProductVariant(){

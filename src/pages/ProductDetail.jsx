@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import ProductDetailComponent from '../component/product/ProductDetailComponent';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductImageSlider from '../component/product/product-detail/productImageSlider';
 import ProductLabel from '../component/product/product-detail/ProductLabel';
 import ProductInfo from '../component/product/product-detail/ProductInfo';
 import ProductSameCollection from '../component/product/product-detail/ProductSameCollection';
+import { BsXLg, BsExclamationCircle, BsCheck2All } from "react-icons/bs";
 
 function ProductDetail() {
 
@@ -32,6 +33,8 @@ function ProductDetail() {
     fetchData();
   },[item_slug]);
 
+  const [showAlert, setShowAlert] = useState(false);
+
 
   return (
     <Container fluid className='content-body'>
@@ -41,9 +44,21 @@ function ProductDetail() {
         <>
           <div className="position-relative">
             <span>Home / Product / detail</span>
-            <div className="alert alert-danger animate-from-right position-absolute" style={{ right: -10,top:-5 }}>
-              Ini adalah pesan alert!sdfsdf
+            {showAlert && (
+            <div className="alert alert-notif animate-from-right fixed-top ms-auto">
+              <div className='d-flex'>
+                <p>
+                  <span className='fw-bold'>Success <BsCheck2All /></span>
+                  <br></br>
+                  Product has been added to the cart
+                </p>
+                <BsXLg className='ms-auto' onClick={() => setShowAlert(false)} />
+              </div>
+              <div className='mt-3'>
+                <Link to={'/cart'} className='btn btn-sm btn-dark'>Checkout Now</Link>
+              </div>
             </div>
+            )}
           </div>
 
           <Container fluid>
@@ -52,7 +67,7 @@ function ProductDetail() {
                 <ProductImageSlider data={productDetail}/>
               </Col>
               <Col md={5}>
-                <ProductLabel data={productDetail} descriptionRef={description}/>
+                <ProductLabel data={productDetail} descriptionRef={description} setShowAlert={setShowAlert}/>
               </Col>
             </Row>
           </Container>

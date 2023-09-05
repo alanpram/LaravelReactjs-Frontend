@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../checkout/CartContext";
 
 
-function ProductLabel({data,descriptionRef }){
+function ProductLabel({data,descriptionRef,setShowAlert  }){
 
     //initialization data---------------------------------------------------------------------
     const item = data.data.data;
@@ -108,8 +108,12 @@ function ProductLabel({data,descriptionRef }){
             const newQty = updatedCart[existingItemIndex].qty = parseInt(updatedCart[existingItemIndex].qty) + 1;
             updatedCart[existingItemIndex].price = parseInt(updatedCart[existingItemIndex].price) * newQty;
             setCartItem(updatedCart);
+
+            setShowAlert(true);
         } else {
             setCartItem([...cartItem, cart]);
+
+            setShowAlert(true);
         }
     };
 
