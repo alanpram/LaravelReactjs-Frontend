@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a simple ecommerce project that has been integrated with xendit payment gateway and google map api for store locator, this project was created when I first learned react.js, this project was created using the vite command line and using swiper.js for carousel, bootstrap and material ui as a css framework, for the data displayed is taken from the service api that I created with the laravel framework, for the features that are in this simple project such as :
+This is a simple ecommerce project that has been integrated with xendit payment gateway, this project was created when I first learned react.js, this project was created using the vite command line and using swiper.js for carousel, bootstrap and material ui as a css framework, for the data displayed is taken from the service api that I created with the laravel framework, for the features that are in this simple project such as :
 
 - **Home**
 - Carousel
@@ -37,11 +37,6 @@ This is a simple ecommerce project that has been integrated with xendit payment 
 
 
 - **About**
-
-
-- **Store**
-- Store Locator With Google Api
-
 
 
 ## Installation

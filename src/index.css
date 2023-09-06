@@ -459,3 +459,9 @@ sub {
 .text-justify{
   text-align: justify;
 }
+
+.login-image{
+  background-image: url('assets/img/layout/login-img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}

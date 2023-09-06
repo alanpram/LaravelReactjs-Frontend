@@ -119,7 +119,6 @@ const NavbarComponent = () => {
                             </Container>
                         </NavDropdown>
                         <Nav.Link as={Link} to="/about">ABOUT US</Nav.Link>
-                        <Nav.Link as={Link} to="/store" >STORE</Nav.Link>
                     </Nav>
                     <div className="d-flex">
                         <BsSearch className="text-light" style={{ fontSize: 17, marginRight: "22px", marginLeft: "50px", marginTop: "3px" }} />
@@ -130,8 +129,9 @@ const NavbarComponent = () => {
                             {cartItemCount}
                             </Badge>
                         </Link>
-
-                        <BsPerson className="text-light" style={{ fontSize: 23 }} />
+                        <Link to="/login">
+                            <BsPerson className="text-light" style={{ fontSize: 23 }} />
+                        </Link>
                     </div>
                 </Navbar.Collapse>
                 </Container>
